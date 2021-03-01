@@ -1,0 +1,115 @@
+{% extends 'home_page.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    {% block sesion %}
+        <a href="{% url 'cerrar_sesion' %}">
+            <button type="button" class="btn btn-outline-danger">    
+                <i class="flaticon-user"></i>
+                <span>Cerrar Sesión</span>
+            </button>
+        </a>
+    {% endblock %}
+</head>
+
+{% block contenido %}
+    <!-- core_features_start -->
+    <div class="core_features">
+        <div class="container">
+            <div class="border-bottm">
+            	<br>
+            	<br>
+            	<br>
+            	<br>
+                <div class="row">
+                    <div class="col-xl-6 col-md-6">
+                        <div class="featuures_heading">
+                            <h3>Empleos</h3>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <a class="genric-btn success circle" href="{%url 'crearanuncios'  %}?celular=0994575765" href="crear_anuncio?celular">Crear anuncio</a>
+            </div>
+            <div class="alert alert-{{color}}" role="alert">
+                        {{ mensaje }}
+                    </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+                            <div class="row">
+                            	
+                                <table style="width:100%">
+                                    <tr>
+                                      <th>Titulo</th>
+                                      <th>Puesto</th>
+                                      <th>Descripción</th>
+                                      <th>Area</th>
+                                      <th>Pais</th>
+                                      <th>Provincia</th>
+                                      <th>Ciudad</th>
+                                      <th>Dirección</th>
+                                      <th>Acciones</th>
+                                    </tr>
+                                    {% for c in lista%}
+                                    <tr>
+                                      <td>{{c.titulo}}</td>
+                                      <td>{{c.puesto}</td>
+                                      <td>{{c.descripcion}}</td>
+                                      <td>{{c.area}}</td>
+                                      <td>{{c.pais}}</td>
+                                      <td>{{c.provincia}}</td>
+                                      <td>{{c.ciudad}}</td>
+                                      <td>{{c.direccion}}</td>
+                                      <td>
+                                        <a class="btn btn-danger circle" href="{%url 'eliminaranuncios'  %}?id={{c.anuncio_id}}">ELIMINAR</a>
+                                        <a class="btn btn-warning circle" href="{%url 'modificaranuncios'  %}?id={{c.anuncio_id}}">MODIFICAR</a>
+                                        <a class="btn btn-warning circle" href="{%url 'ver_postulaciones' %}?codigo={{c.anuncio_id}}">VER POSTULACIONES</a>
+
+                                        
+                                      </td>
+                                    </tr>
+                                    {%endfor%}
+                                  </table>
+                                  
+                                
+                            	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+    {% for c in lista%}
+    <div class="col-xl-6">
+        <a class="btn btn-danger circle" href="{%url 'eliminaranuncios'  %}?id={{c.anuncio_id}}">X</a>
+        <a class="btn btn-warning circle" href="{%url 'modificaranuncios'  %}?id={{c.anuncio_id}}">M</a>
+        <a href="{%url 'ver_postulaciones' %}?codigo={{c.anuncio_id}}">
+        <div class="single_features">
+            <div class="icon"><i class="flaticon-browser"></i></div>
+            <div class="features_info">
+                <h4>{{c.titulo}}</h4>
+                <h5>{{c.puesto}}</h5>
+                <p>{{c.descripcion}}</p>
+                <p>{{c.area}}</p>
+                <p>{{c.pais}}</p>
+                <p>{{c.provincia}}</p>
+                <p>{{c.ciudad}}</p>
+                <p>{{c.direccion}}</p>
+                <a class="genric-btn primary circle" href="{%url 'postular'  %}?celular=0939694489&id={{c.anuncio_id}}">Postular</a>
+            </div>
+        </div>
+        </a>
+    </div>
+    
+    {%endfor%}
+        
+    -->
+    <!-- core_features_end -->
+{% endblock %}
+
+</html>

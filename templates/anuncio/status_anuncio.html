@@ -1,0 +1,23 @@
+{% extends 'home_page.html' %}
+{% load static %}
+<html lang="en">
+
+
+{% block contenido %}
+    <!-- slider_area_start -->
+    <div class="slider_area">
+        <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1 overlay2">
+           <div class="container">
+                <center>
+    		<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">{{mensaje}}</h4>
+  <hr>
+</div>
+	<a href="{%url 'anuncios'  %}"><button class="btn btn-outline-success" type="button">Regresar</button></a>
+    	</center>
+            </div>
+        </div>
+    </div>
+    <!-- slider_area_end -->
+{% endblock %}
+</html>

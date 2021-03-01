@@ -1,0 +1,57 @@
+{% extends 'home_page.html' %}
+{% load static %}
+<html lang="en">
+
+
+{% block contenido %}
+    <div class="slider_area" style="height: 1200px;background-color: #2A004B;">
+        <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1 overlay2">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+
+                    <div class="col-xl-9">
+                        <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        <br>
+                            <br>
+                            <br>
+                        <div class="slider_text text-center">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <h3>Crear Anuncio</h3>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="find_dowmain">
+                            	<h3 style="color: white;">Crear Anuncio</h3>
+                            	<div class="jumbotron">
+                            		<p>Información del anuncio</p>
+                                <form method="POST">{% csrf_token %}
+                                    <div class="col-xl-12 col-md-12">
+                            			{{formulario.as_p}}
+                            		</div>
+                            		<br>
+                            		<center>
+                                		<button type="submit" class="btn btn-success">Crear</button>
+                                		<a href="{%url 'anuncios'  %}"><button type="button" class="btn btn-danger">Regresar</button></a>
+                                	</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider_area_end -->
+{% endblock %}
+</html>

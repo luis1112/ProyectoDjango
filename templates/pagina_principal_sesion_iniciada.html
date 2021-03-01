@@ -1,0 +1,53 @@
+{% extends 'home_page.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    {% block scripts %}
+    <script>
+                function buscar(){
+                var url = "http://10.20.8.195:8000/persona/anuncios/buscar_anuncio?consulta=";
+                var consulta = $('#busqueda').val();
+                url=url+consulta;
+                window.location=url;
+                };
+        </script>
+    {% endblock %}    
+    {% block sesion %}
+        <a href="{% url 'cerrar_sesion' %}">
+            <button type="button" class="btn btn-outline-danger">    
+                <i class="flaticon-user"></i>
+                <span>Cerrar Sesión</span>
+            </button>
+        </a>
+    {% endblock %}
+</head>
+
+    {% block contenido %}
+    <!-- slider_area_start -->
+    <div class="slider_area">
+        <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1 overlay2">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-xl-9">
+                        <div class="slider_text text-center">
+                            <p>Buscar</p>
+                            <h3>Empleos</h3>
+                            <div class="find_dowmain">
+                                <form action="#" class="find_dowmain_form">
+                                    <input type="text" id="busqueda" placeholder="Ingrese el tipo de empleo que busca" style="margin-left: -4%;" required>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a id="botonbuscar"  class="btn btn-success btn-lg" onclick="buscar()" style="color: white;">Buscar</a>
+                                        <a  class="btn btn-info btn-lg" href="{%url 'anuncios'  %}" style="color: white;">Ver Todos</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+</html>

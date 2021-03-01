@@ -1,0 +1,46 @@
+{% extends 'home_page.html' %}
+{% load static %}
+<html lang="en">
+
+
+{% block contenido %}
+    <!-- slider_area_start -->
+    <div class="slider_area" style="height: 900px;background-color: #2A004B;">
+        <div  class="single_slider d-flex align-items-center justify-content-center slider_bg_1 overlay2">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-xl-9">
+                        
+                        <div class="slider_text text-center">
+                            <br>
+                            <br>
+                            <h3>Postular</h3>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="find_dowmain">
+                            	<h3 style="color: white;">Postulación</h3>
+                            	<div class="jumbotron">
+                            		<p>Escriba el salario que desea e información adicional</p>
+                                <form method="POST">{% csrf_token %}
+                                    <div class="col-xl-12 col-md-12">
+                            			{{formulario.as_p}}
+                            		</div>
+                            		<br>
+                            		<center>
+                                		<button type="submit" class="btn btn-success">Postular</button>
+                                		<a href="{%url 'anuncios'  %}"><button type="button" class="btn btn-danger">Regresar</button></a>
+                                	</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider_area_end -->
+{% endblock %}
+
+</html>
